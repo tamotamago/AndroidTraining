@@ -7,5 +7,11 @@ Assignment Report for 1.3
 ======
 
 3. 作成した apk ファイルの中にあるファイル・ディレクトリを列挙してください。
+ - AndroidManifest.xml 
+ - ThirdSample.zip     
+ - res
+ - META-INF
+ - classes.dex         
+ - resources.arsc
 
 4. 上記で列挙したファイル・ディレクトリについて、どのような役割を持っているか説明してください。
