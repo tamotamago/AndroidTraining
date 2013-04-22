@@ -9,17 +9,58 @@
     tools:context=".MainActivity" >
 
     <!-- Button1 の右に 2 つボタンを並べて均等割付する -->
-    <Button
-        android:id="@+id/Button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"/>
-
+    <LinearLayout
+	    android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal" 
+    	android:id="@+id/topLayout"> 
+	    <Button
+	        android:id="@+id/Button1"
+	        android:layout_weight="1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="1"/>
+	    <Button
+	        android:id="@+id/Button2"
+	        android:layout_weight="1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="2"/>
+	    <Button
+	        android:id="@+id/Button3"
+	        android:layout_weight="1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="3"/>
+	</LinearLayout>
+	
     <!-- Button4 の右に、縦に 2 つのボタンを並べる -->
     <Button
         android:id="@+id/Button4"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_below="@+id/Button1"
+        android:layout_below="@+id/topLayout"
+        android:layout_alignLeft="@+id/topLayout"
         android:text="4"/>
+    
+    <LinearLayout android:id="@+id/rightLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/Button4"
+        android:layout_alignTop="@+id/Button4"
+        android:layout_alignBottom="@+id/Button4"
+        android:orientation="vertical">
+        <Button
+        	android:id="@+id/Button5"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="5"
+        	android:textSize="40sp"/>
+        <Button
+        	android:id="@+id/Button6"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="6"/>
+    </LinearLayout>
+    
 </RelativeLayout>
