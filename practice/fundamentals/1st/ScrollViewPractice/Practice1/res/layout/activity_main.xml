@@ -11,9 +11,22 @@
 
     <!-- TODO: LongText をスクロールできるようにする -->
     <!-- TODO: LongText の下に 1 つ Button を配置する -->
-    <TextView
-        android:id="@+id/LongText"
+    <ScrollView 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"/>
+        android:layout_height="wrap_content">
+        <RelativeLayout 
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+            <TextView
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/hello_world"
+        	android:id="@+id/LongText"/>
+        <Button 
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_below="@+id/LongText"
+        	android:text="Button"/>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
