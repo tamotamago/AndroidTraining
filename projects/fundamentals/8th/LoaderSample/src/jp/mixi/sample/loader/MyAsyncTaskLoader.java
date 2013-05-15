@@ -15,7 +15,6 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<String> {
     // 非同期処理の中身
     @Override
     public String loadInBackground() {
-        Log.v(TAG, "loadInBackground");
         try {
             Thread.sleep(1000L);
         } catch (InterruptedException e) {
@@ -26,7 +25,6 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<String> {
 
     @Override
     public void deliverResult(String data) {
-        Log.v(TAG, "deliverResult");
         // ローダがリセットされ、そのローダのライフサイクルが終了となる場合
         if (isReset()) {
             // キャッシュデータがある場合は、キャッシュを削除して、メモリから破棄可能にする
@@ -47,7 +45,6 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<String> {
 
     @Override
     protected void onStartLoading() {
-        Log.v(TAG, "onStartLoading");
         // キャッシュがある場合はそちらを返す
         if (mCachedData != null) {
             deliverResult(mCachedData);
@@ -63,7 +60,6 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<String> {
     // ローダの非同期処理がストップする時のコールバック
     @Override
     protected void onStopLoading() {
-        Log.v(TAG, "onStopLoading");
         cancelLoad();
         super.onStopLoading();
     }
@@ -71,7 +67,6 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<String> {
     // ローダがリセットされる時のコールバック
     @Override
     protected void onReset() {
-        Log.v(TAG, "onReset");
         onStopLoading();
         super.onReset();
     }
