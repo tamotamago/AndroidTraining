@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -15,7 +17,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // AsyncTask のインスタンスを生成し、非同期処理を実行する
-        new MyAsyncTask().execute();
+        new MyAsyncTask(findViewById(R.id.textView)).execute();
+        //new MyAsyncTask().execute();
     }
 
     @Override
@@ -34,6 +37,18 @@ public class MainActivity extends Activity {
      * @author keishin.yokomaku
      */
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
+    	
+    	TextView textView;
+    	
+    	//public MyAsyncTask() {
+			// TODO Auto-generated constructor stub
+		//}
+    	
+    	public MyAsyncTask(View textView) {
+			// TODO Auto-generated constructor stub
+    		this.textView = (TextView) textView;
+		}
+    	
         /**
          * 非同期処理を実行する前に UI スレッドで実行する処理を書く
          */
@@ -59,6 +74,8 @@ public class MainActivity extends Activity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
+            	//TextView textView = (TextView)findViewById(R.id.textView);
+            	this.textView.setText("hogehoge");
                 publishProgress();
                 Thread.sleep(2000L);
                 publishProgress();
